@@ -2,5 +2,5 @@ baseurl: /jekyll_blog
 
 markdown: rdiscount
 pygments: true
-
+permalink: /:year/:month/:day/:title.html
 name: "[sanjay blog]"
