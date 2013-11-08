@@ -1,0 +1,8 @@
+baseurl: 
+
+markdown: rdiscount
+pygments: true
+permalink: /:year/:month/:day/:title.html
+name: "[sanjay blog]"
+
+author: sanjay
