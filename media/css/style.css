@@ -58,7 +58,7 @@ hr {
   text-shadow: 1px 1px #fff; }
   .divider:after {
     display: block;
-    content: '———— ✄  ————';
+    content: '----------  ✄   ----------';
     text-align: center; }
 
 a, header #header h1 a, article .title a, article .meta .tags a {
