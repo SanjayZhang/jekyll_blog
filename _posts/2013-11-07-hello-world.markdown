@@ -2,7 +2,7 @@
 title: Hello World!
 layout: post
 tags:
-  - diary2
+  - diary
 ---
 
 
