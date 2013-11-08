@@ -16,11 +16,23 @@
   padding: 0; }
 
 body {
-  font-size: 14px;
-  font-family: "Lekton", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  font-size: 16px;
+  font-family: "Microsoft YaHei", sans-serif;
   color: #555;
   background-color: #f9f9f9; }
 
+body>div {
+    width: 70%;
+    min-width: 32em;
+    max-width: 50em;
+    padding: 3em 3em 1.5em;
+    margin: 3em auto;
+    background-color: #fff;
+    -moz-box-shadow: 0 0 10px 0 #cfcfcf;
+    -webkit-box-shadow: 0 0 10px 0 #cfcfcf;
+    box-shadow: 0 0 10px 0 #cfcfcf;
+    border-top: 6px solid #EE0000;
+}
 ol, ul {
   list-style-position: inside; }
 
@@ -72,11 +84,11 @@ code {
   border: 1px dashed #e0e0e0; }
 
 header {
-  width: 720px;
+  width: 740px;
   margin: 0 auto;
   text-align: justify;
   margin: 2em auto 4em auto;
-  border-bottom: 2px dashed #999; }
+  border-bottom: 2px solid #999; }
   header:after {
     content: '';
     width: 100%;
@@ -147,14 +159,14 @@ article {
     margin: 3em 0; }
 
 footer {
-  width: 720px;
+  width: 740px;
   margin: 0 auto;
   display: block;
   color: #909090;
   font-family: "Titillium Web", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
 
   text-align: center;
-  border-top: 2px dashed #999;
+  border-top: 1px dashed #999;
   margin: 1em auto; }
   footer a, footer header #header h1 a, header #header h1 footer a, footer article .title a, article .title footer a, footer article .meta .tags a, article .meta .tags footer a {
     color: #cccccc; }

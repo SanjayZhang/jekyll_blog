@@ -1,4 +1,5 @@
 ---
+title: Sanjay's Blog
 layout: default
 ---
 
