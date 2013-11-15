@@ -10,26 +10,26 @@ tags:
 
 过程中出现的问题：  
 
-- 1:Android Libraries and Multi-project的设置  
-- 2:打包后缺少*.so文件
-- 3:多版本设置包名的问题  
-- 4:ProGuard混淆出现无法编译错误  
-- 5:多渠道打包问题  
+ - 1:Android Libraries and Multi-project的设置  
+ - 2:打包后缺少*.so文件
+ - 3:多版本设置包名的问题  
+ - 4:ProGuard混淆出现无法编译错误  
+ - 5:多渠道打包问题  
 
 
 主要参考的是[用Gradle 构建你的android程序](http://www.cnblogs.com/youxilua/archive/2013/05/20/3087935.html)  
 
-- 问题1:参见[用Gradle 构建你的android程序-依赖管理篇](http://www.cnblogs.com/youxilua/archive/2013/05/22/3092657.html)
+ - 问题1:参见[用Gradle 构建你的android程序-依赖管理篇](http://www.cnblogs.com/youxilua/archive/2013/05/22/3092657.html)
 官方指南[Gradle Plugin User Guide](http://tools.android.com/tech-docs/new-build-system/user-guide#TOC-Goals-of-the-new-Build-System)  
-- 问题2:参见[Gradle 构建 android 应用常见问题解决指南](http://www.cnblogs.com/youxilua/p/3348162.html)  
-- 问题3:一直编译不通过，后来发现是资源文件中以包名路径调用了资源，配置文件里构建多版本时就不能改包名  
-- 问题4:这个问题搞了很久，一直报task无法调用ProGuard.proguard。但是intellij是可以混淆的，后来发现是构建多项目时由于有两个v4包，为了省事使用
+ - 问题2:参见[Gradle 构建 android 应用常见问题解决指南](http://www.cnblogs.com/youxilua/p/3348162.html)  
+ - 问题3:一直编译不通过，后来发现是资源文件中以包名路径调用了资源，配置文件里构建多版本时就不能改包名  
+ - 问题4:这个问题搞了很久，一直报task无法调用ProGuard.proguard。但是intellij是可以混淆的，后来发现是构建多项目时由于有两个v4包，为了省事使用
 ```
 dependencies {
     compile fileTree(dir: 'libs', include: '*.jar')
 }
 ```直接删掉了主项目中的v4包，但是混淆的配置文件中使用的是原来的，还是加载了项目中的v4包，但是gradle编译出现的错误看不出啥么花头。。。  
-- 问题5:多渠道代码copy的是[Jenkins+Gradle实现android开发持续集成、打包](http://my.oschina.net/uboluo/blog/157483)  
+ - 问题5:多渠道代码copy的是[Jenkins+Gradle实现android开发持续集成、打包](http://my.oschina.net/uboluo/blog/157483)  
 
 
 
