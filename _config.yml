@@ -1,4 +1,4 @@
-baseurl: /jekyll_blog
+baseurl: /
 
 markdown: rdiscount
 pygments: true
