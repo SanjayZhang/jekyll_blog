@@ -1,6 +1,6 @@
 ---
-title:wechat init
-layout:post
+title: Wechat init
+layout: post
 tags:
   - diary
 ---
