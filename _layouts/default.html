@@ -3,10 +3,13 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="author" content="{{ site.author }}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">  
     <title>{{ page.title }}</title>
 
     <link rel="shortcut icon" href="{{site.baseurl}}/media/favicon.ico">
-    <link rel="stylesheet" href="{{site.baseurl}}/media/css/style.css">
+
+    <link rel="stylesheet" type="text/css" media="screen and (max-device-width: 1119px)" href="{{ site.baseurl }}/media/css/smallStyle.css"/>
+    <link rel="stylesheet" type="text/css" media="screen and (min-device-width: 1200px)" href="{{ site.baseurl }}/media/css/style.css">
     <link rel="stylesheet" href="{{site.baseurl}}/media/css/fontawesome.css">
     <!--[if IE 7]>
     <link rel="stylesheet" href="/media/css/fontawesome-ie7.css">

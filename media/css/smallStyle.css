@@ -23,13 +23,13 @@ body {
 
 body>div {
     width: 90%;
-    min-width: 32em;
-    max-width: 50em;
-    padding: 3em 3em 1.5em;
-    margin: 3em auto;
+
+margin:0% 2% 2% 0%;
+padding: 4% 4% 5% 5%;
+
     background-color: #fff;
-    -moz-box-shadow: 0 0 10px 0 #cfcfcf;
-    -webkit-box-shadow: 0 0 10px 0 #cfcfcf;
+
+
     box-shadow: 0 0 10px 0 #cfcfcf;
     border-top: 6px solid #EE0000;
 }
@@ -48,9 +48,7 @@ hr {
 .center {
   text-align: center; }
 
-::selection {
-  color: #fff;
-  background-color: #333; }
+
 
 
 
@@ -80,8 +78,8 @@ header {
   width: 95%;
   margin: 0 auto;
   text-align: justify;
-  margin: 2em auto 4em auto;
-  border-bottom: 2px solid #999; }
+  margin: 1em auto 2em auto;
+  border-bottom: 1px solid #999; }
   header:after {
     content: '';
     width: 100%;
@@ -93,7 +91,7 @@ header {
     header #header h1 {
       font-family: "Titillium Web", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
       header #header h1 a {
-        color: #bb2222; }
+        color: #777; }
   header nav {
     display: inline-block;
     position: relative;
