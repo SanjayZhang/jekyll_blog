@@ -9,8 +9,8 @@ a
 
 works
 
-> [izheshang(android edition)](http://www.izheshang.com/mobi/)
+> [izheshang(android edition)](http://www.izheshang.com/mobi/);[uplier(android edition)](http://www.uplier.com/down.html)
 
 mail 
 
-> zsj_09@hotmail.com
+> sanjay.zsj09@gmail.com
