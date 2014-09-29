@@ -35,7 +35,7 @@ Dex分包方案流程：
   
 2.主程序对第二个dex注入：主程序可以通过反射动态加载dex，但是有缺点：第一，代码编写不方便，第二个类中的所有资源都要反射动态加载。第二，如果分包的时候有一些android framework打入第二个包，主程序会启动不起来（网上的说法，有疑问，一般核心类不是应该存在系统里面的？)。  而dex注入是在activity启动之前的application通过反射替换该程序的内存中存类方法的地址。 [](http://blog.csdn.net/huli870715/article/details/38023065)这篇的原理比较清晰，可以一看，不过没有关键代码。估计是我自己实现的有问题，反射这类的又不好调试。这边的原理是将新增加的方法，通过反射动态添加到程序的PathClassLoader中的dexElements中。而下面的方法直接将加载的dex替换掉程序PathClassLoader的父Classloader，原理当然还是需要跟源代码，但表示系统加载流程什么的还是交给[老罗的Android之旅](http://blog.csdn.net/luoshengyang/article/details/8923485)。目前猜测是程序调用方案先从PathClassloader取，若取不到则从他的父 Classloader中取。  
   
-感谢分享者[mmin18](https://github.com/mmin18/Dex65536),具体代码：
+感谢分享者[mmin18](https://github.com/mmin18/Dex65536),具体代码：  
 ```
 	/**
 	 * Copy the following code and call dexTool() after super.onCreate() in
