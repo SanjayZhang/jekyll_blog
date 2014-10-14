@@ -4,7 +4,7 @@ layout: post
 tags:
  - android
 ---
-  
+
 [TOC]
 
 Dex分包方案  
@@ -22,9 +22,8 @@ Dex分包方案流程：dex分包，dex注入。对于android2.3之前的，还�
 1. 在应用的安装过程中，会运行一个程序（dexopt）去根据当前机型为应用做一些特定的准备和优化。dexopt中使用了一个固定大小的缓冲区（名为LinearAlloc）来存储应用中方法的信息。最新的几个Android版本中，该缓冲的大小是8MB或16MB。但是Froyo（2.2）和Gingerbread（2.3）只有5MB。因为老版Android的这个限制，当方法数量超过这个缓冲大小的时候，会导致应用崩溃。
 2. dexopt使用LinearAlloc储存dex文件的方法信息的时候，运行期的Android应用使用它访问实际用到的方法。如果在运行期将所有的dex文件都加载到一个进程中的话，实际的方法数量还是会超过限制。应用虽然可以启动但是很快就会崩溃。
 
-感谢作者分享[Facebook的Dalvik运行期补丁](http://log4think.com/facebook_dalvik_patch_for_android/)
-:    
-
+***感谢作者分享[Facebook的Dalvik运行期补丁](http://log4think.com/facebook_dalvik_patch_for_android/)***
+  
 Dex分包方案流程
 ---
 ###1. 分包的方式
