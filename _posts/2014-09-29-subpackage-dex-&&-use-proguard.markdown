@@ -52,55 +52,55 @@ dex由主程序中的类以及使用的jar包中类共同生成。程序中的�
 
 ***感谢分享者[mmin18](https://github.com/mmin18/Dex65536)，以下是具体代码：***
 ```
-	/**
-	 * Copy the following code and call dexTool() after super.onCreate() in
-	 * Application.onCreate()
-	 * <p>
-	 * This method hacks the default PathClassLoader and load the secondary dex
-	 * file as it's parent.
-	 */
-	@SuppressLint("NewApi")
-	private void dexTool() {
+/**
+ * Copy the following code and call dexTool() after super.onCreate() in
+ * Application.onCreate()
+ * <p>
+ * This method hacks the default PathClassLoader and load the secondary dex
+ * file as it's parent.
+ */
+@SuppressLint("NewApi")
+private void dexTool() {
 
-		File dexDir = new File(getFilesDir(), "dlibs");
-		dexDir.mkdir();
-		File dexFile = new File(dexDir, "libs.apk");
-		File dexOpt = getCacheDir();
-		try {
-			InputStream ins = getAssets().open("libs.apk");
-			if (dexFile.length() != ins.available()) {
-				FileOutputStream fos = new FileOutputStream(dexFile);
-				byte[] buf = new byte[4096];
-				int l;
-				while ((l = ins.read(buf)) != -1) {
-					fos.write(buf, 0, l);
-				}
-				fos.close();
+	File dexDir = new File(getFilesDir(), "dlibs");
+	dexDir.mkdir();
+	File dexFile = new File(dexDir, "libs.apk");
+	File dexOpt = getCacheDir();
+	try {
+		InputStream ins = getAssets().open("libs.apk");
+		if (dexFile.length() != ins.available()) {
+			FileOutputStream fos = new FileOutputStream(dexFile);
+			byte[] buf = new byte[4096];
+			int l;
+			while ((l = ins.read(buf)) != -1) {
+				fos.write(buf, 0, l);
 			}
-			ins.close();
-		} catch (Exception e) {
-			throw new RuntimeException(e);
+			fos.close();
 		}
-
-		ClassLoader cl = getClassLoader();
-		ApplicationInfo ai = getApplicationInfo();
-		String nativeLibraryDir = null;
-		if (Build.VERSION.SDK_INT > 8) {
-			nativeLibraryDir = ai.nativeLibraryDir;
-		} else {
-			nativeLibraryDir = "/data/data/" + ai.packageName + "/lib/";
-		}
-		DexClassLoader dcl = new DexClassLoader(dexFile.getAbsolutePath(),
-				dexOpt.getAbsolutePath(), nativeLibraryDir, cl.getParent());
-
-		try {
-			Field f = ClassLoader.class.getDeclaredField("parent");
-			f.setAccessible(true);
-			f.set(cl, dcl);
-		} catch (Exception e) {
-			throw new RuntimeException(e);
-		}
+		ins.close();
+	} catch (Exception e) {
+		throw new RuntimeException(e);
 	}
+
+	ClassLoader cl = getClassLoader();
+	ApplicationInfo ai = getApplicationInfo();
+	String nativeLibraryDir = null;
+	if (Build.VERSION.SDK_INT > 8) {
+		nativeLibraryDir = ai.nativeLibraryDir;
+	} else {
+		nativeLibraryDir = "/data/data/" + ai.packageName + "/lib/";
+	}
+	DexClassLoader dcl = new DexClassLoader(dexFile.getAbsolutePath(),
+			dexOpt.getAbsolutePath(), nativeLibraryDir, cl.getParent());
+
+	try {
+		Field f = ClassLoader.class.getDeclaredField("parent");
+		f.setAccessible(true);
+		f.set(cl, dcl);
+	} catch (Exception e) {
+		throw new RuntimeException(e);
+	}
+}
 ```  
 ###3. android2.3 davlik虚拟机内存限制5M提升到8M补丁  
 这里主要用了[viila](https://github.com/viilaismonster/LinearAllocFix)的LinearAllocFix，将LinearAlloc扩大至8M。要说明的是路径info/viila/android/linearallocfix不能变，改的话需要jni重新生成so文件。  
