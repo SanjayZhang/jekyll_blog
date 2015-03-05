@@ -101,7 +101,8 @@ private void dexTool() {
 		throw new RuntimeException(e);
 	}
 }
-```  
+```
+  
 ###3. android2.3 davlik虚拟机内存限制5M提升到8M补丁  
 这里主要用了[viila](https://github.com/viilaismonster/LinearAllocFix)的LinearAllocFix，将LinearAlloc扩大至8M。要说明的是路径info/viila/android/linearallocfix不能变，改的话需要jni重新生成so文件。  
   
