@@ -1,5 +1,9 @@
 ---
+<<<<<<< HEAD
 title: problem with ksoap2
+=======
+title: strange problem（java.io.EOFException ） encountered when using ksoap2-android-assembly-3.4.0-jar-with-dependencies.jar
+>>>>>>> 98f71d67aa2d769b23123e45812c4af9ee137f4c
 layout: post
 tags:
  - android
