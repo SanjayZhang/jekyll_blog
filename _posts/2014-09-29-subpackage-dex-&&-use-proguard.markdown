@@ -51,6 +51,7 @@ dex由主程序中的类以及使用的jar包中类共同生成。程序中的�
 而下面的方法直接将加载的dex替换掉程序PathClassLoader的父Classloader，原理当然还是需要跟源代码，但表示系统加载流程什么的还是交给[老罗的Android之旅](http://blog.csdn.net/luoshengyang/article/details/8923485)。目前猜测是程序调用方案先从PathClassloader取，若取不到则从他的父Classloader中取。
 
 ***感谢分享者[mmin18](https://github.com/mmin18/Dex65536)，以下是具体代码：***
+
 ```
 /**
  * Copy the following code and call dexTool() after super.onCreate() in
@@ -61,7 +62,6 @@ dex由主程序中的类以及使用的jar包中类共同生成。程序中的�
  */
 @SuppressLint("NewApi")
 private void dexTool() {
-
 	File dexDir = new File(getFilesDir(), "dlibs");
 	dexDir.mkdir();
 	File dexFile = new File(dexDir, "libs.apk");
