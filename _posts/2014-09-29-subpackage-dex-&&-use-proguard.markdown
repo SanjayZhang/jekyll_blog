@@ -9,6 +9,13 @@ tags:
 
 [TOC]
 
+  
+------
+
+***目前官方已经支持分包，具体查看[官网](https://developer.android.com/reference/android/support/multidex/MultiDex.html)***
+
+------
+
 Dex分包方案  
 ===
 Dex分包方案流程：dex分包，dex注入。对于android2.3之前的，还需要hack davlik虚拟机。  
