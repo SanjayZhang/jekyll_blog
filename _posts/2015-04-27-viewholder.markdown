@@ -58,9 +58,11 @@ com.example.android.apis.view中的List14：
 		ImageView icon;
 	}
 ```
+
 ViewHolder优雅写法
 ---
 参考自[base-adapter-helper](https://github.com/JoanZapata/base-adapter-helper)
+
 ```
 	public class ViewHolder {
 	
