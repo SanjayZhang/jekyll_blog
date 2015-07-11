@@ -67,37 +67,41 @@ ViewHolder优雅写法
 	public class ViewHolder {
 	
 		/** Views indexed with their IDs */
-		private final SparseArray<View> views;
-		
+		private SparseArray<View> views;
 		private View convertView;
-		
-		protected ViewHolder(Context context, ViewGroup parent, int layoutId) {
-			this.context = context;
-			this.views = new SparseArray<View>();
-			convertView = LayoutInflater.from(context).inflate(layoutId, parent, false);
-			convertView.setTag(this);
+
+		private ViewHolder(Context context, ViewGroup parent, int layoutId) {
+		    this.views = new SparseArray<View>();
+
+		    this.convertView = LayoutInflater.from(context).inflate(layoutId, parent, false);
+		    this.convertView.setTag(this);
 		}
-		
+
 		public static ViewHolder get(Context context, View convertView, ViewGroup parent, int layoutId) {
-			if (convertView == null) {
-			  return new ViewHolder(context, parent, layoutId);
-			}
-			return (ViewHolder) convertView.getTag();
+		    if (convertView == null) {
+		        return new ViewHolder(context, parent, layoutId);
+		    }
+		    return (ViewHolder) convertView.getTag();
 		}
-		
-		/** Retrieve the convertView */
+
 		public View getView() {
-			return convertView;
+		    return convertView;
 		}
-		
+
+
+		public <T extends View> T getView(int viewId) {
+		    return retrieveView(viewId);
+		}
+
+
 		@SuppressWarnings("unchecked")
 		protected <T extends View> T retrieveView(int viewId) {
-			View view = views.get(viewId);
-			if (view == null) {
-			  view = convertView.findViewById(viewId);
-			  views.put(viewId, view);
-			}
-			return (T) view;
+		    View view = views.get(viewId);
+		    if (view == null) {
+		        view = convertView.findViewById(viewId);
+		        views.put(viewId, view);
+		    }
+		    return (T) view;
 		}
 	}
 ```
