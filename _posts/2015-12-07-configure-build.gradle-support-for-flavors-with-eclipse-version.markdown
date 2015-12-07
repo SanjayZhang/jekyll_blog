@@ -28,7 +28,7 @@ tags:
 
 更多
 ---
-1.由于公司内网不能访问外网，这个脚本的gradle插件还是用的老的，目前官方已经升级至1.5，全面支持[databinding](https://developer.android.com/tools/revisions/gradle-plugin.html)
-2.这边的脚本名称是是叫多项目，实际上开发过程是单项目开发，按照这种方式只是便于管理
-3.另外这边说个小技巧，android这边的gradle，命令支持驼峰简称。例：gradle installDebug 直接输 gradle iD即可。当然前提是缩写之后不能有重复的命令
+1. 由于公司内网不能访问外网，这个脚本的gradle插件还是用的老的，目前官方已经升级至1.5，全面支持[databinding](https://developer.android.com/tools/revisions/gradle-plugin.html)
+2. 这边的脚本名称是是叫多项目，实际上开发过程是单项目开发，按照这种方式只是便于管理
+3. 另外这边说个小技巧，android这边的gradle，命令支持驼峰简称。例：gradle installDebug 直接输 gradle iD即可。当然前提是缩写之后不能有重复的命令
 
