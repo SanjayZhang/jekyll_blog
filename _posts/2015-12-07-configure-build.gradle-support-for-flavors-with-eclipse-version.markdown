@@ -21,9 +21,9 @@ tags:
 但是到开发的时候， 由于配置的一般是win的机子，相关由于目前自动打包的脚本没有win版本，需要手动把配置文件拷贝到主项目文件，然后手动进行重复资源id的合并（当然一般也不做，一般都是String资源，只是显示的区别），比较繁琐。
 
 实际操作过程中，基本一个项目是由同一个开发管理，配置文件也只需要拷贝一次即可，但作为一个开发，这边工作显然是由脚本来完成比较geek。由于谷歌官方支持了[多项目开发](https://developer.android.com/tools/building/plugin-for-gradle.html)的管理，就打算使用官方的方案。这边要解决的问题是，原先的项目结构是eclipse的ant编译版本，需要进行gradle版本适配。其他也不说了，具体看下面的build.gradle
-![build.gradle_version_variants_1](/media/2015/12/07/build.gradle_version_variants_1.png)
-![build.gradle_version_variants_2](/media/2015/12/07/build.gradle_version_variants_2.png)
-![build.gradle_version_variants_3](/media/2015/12/07/build.gradle_version_variants_3.png)
+![build.gradle_version_variants_1](/media/2015/12/07/build_gradle_version_variants_1.png)
+![build.gradle_version_variants_2](/media/2015/12/07/build_gradle_version_variants_2.png)
+![build.gradle_version_variants_3](/media/2015/12/07/build_gradle_version_variants_3.png)
 
 
 更多
