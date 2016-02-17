@@ -5,7 +5,7 @@ layout: page
 
 a
 
-> Android Developer(Beginner)
+> Android Developer
 
 works
 
