@@ -20,11 +20,17 @@ tags:
 
 方案流程
 ---
-###1. 配置gradle环境
-我这边用的是2.4,这个版本说是对android编译速度有显著提高，当然你也可以用目前最新的[gradle2.6](https://gradle.org/).这边配置离线模式，直接使用的是联网机子上的成功运行的缓存文件。由于以前缓存的是2.4的版本，我这边就沿用了。
+###1. 配置gradle以及android插件
+1. 配置相应的gradle版本
+2. 配置jcenter的路径为本地路径，jcenter(){url ' xxx'}
 
-1.  解压gradle程序到目录，并配置环境变量，方便代码调用
-2.  解压gradle缓存目录到用户下.gradle文件下。gradle的默认缓存目录是这个，放在其他目录并没有试过。
+最新版本的AndroidStudio中gradle目录有gradle以及android插件 m2respository库
+
+以前原始的做法，第一次可以。但是缓存会变更，会造成配置失败
+>我这边用的是2.4,这个版本说是对android编译速度有显著提高，当然你也可以用目前最新的[gradle2.6](https://gradle.org/).这边配置离线模式，直接使用的是联网机子上的成功运行的缓存文件。由于以前缓存的是2.4的版本，我这边就沿用了。
+>
+>1.  解压gradle程序到目录，并配置环境变量，方便代码调用
+>2.  解压gradle缓存目录到用户下.gradle文件下。gradle的默认缓存目录是这个，放在其他目录并没有试过。
 
 ###2. 配置SDK环境
 1.  SDK中需要有支持multidex的buildTools版本，没有的请更新
@@ -33,8 +39,13 @@ tags:
 ###3. 配置开发环境
 1. intellij idea只要使用gradle项目导入，再配置gradle为offline-mode即可。另外这边按照电脑的配置[加速AndroidStudio/Gradle构建](http://blog.isming.me/2015/03/18/android-build-speed-up/)
 
+导入方式如果不是使用gradle为本地模式，而使用wrapper模式的话，需要将里面的distributionUrl修改为本地gradle包地址
 
 更多
 ---
 这边算是留个档吧，刚开始离线模式使用的那个gradle，直接配成了缓存目录的.gradle里面的版本，一直不行，后来是multidex包没找到。当然这边有网的话都不是事，残念的是有时并不能连上网，哈哈！
 
+
+2016/05/17
+
+目前新版的AndroidStudio对缓存支持已经很友好了，原先不支持的时候倒腾经验，算是理解机制了
