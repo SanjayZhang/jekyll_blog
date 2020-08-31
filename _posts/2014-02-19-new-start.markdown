@@ -5,7 +5,8 @@ tags:
   - diary
 ---
 
-弄了弄域名，继续写博！   
-图片采用skydrive外链,google drive国内不稳定就不考虑了.Dropbox我这没有外链的资格...  
+弄了弄域名，继续写博!
+
+图片采用 skydrive 外链。Google drive 国内不稳定就不考虑了。Dropbox 我这没有外链的资格...
 
 ![The Start Of New Journey](https://3qcufg.blu.livefilestore.com/y2pWaFHBAyEmHS4teEi1X5z6R615kpE80Klp2qkU1gGpGeMyTrdzEa8jOVBe7Z7cOYwokWAJjABo89HslIjm9i9a-0Sz9apik5xvGhHMB-NKcA/StartOfANewJourney.jpg?psid=1)
