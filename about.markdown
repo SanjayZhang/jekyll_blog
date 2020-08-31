@@ -3,15 +3,7 @@ title: about
 layout: page
 ---
 
-a
+My name is Sanjay, an Android software engineer.
 
-> Android Developer
-
-works
-
-> [izheshang(android edition)](http://www.izheshang.com/mobi/)
-> [uplier(android edition)](http://www.uplier.com/down.html)
-
-mail
-
-> sanjay.zsj09@gmail.com
+* How to reach me: sanjay.zsj09@gmail.com
+  
