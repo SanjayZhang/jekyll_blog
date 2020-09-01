@@ -24,7 +24,7 @@ layout: default
 
 
   <script type="text/javascript">
-      var disqus_shortname = 'sanjayzhang';
+      var disqus_shortname = '{{ site.disqus }}';
       var disqus_identifier = '{{ page.guid }}';
 
       function leave_comment() {
@@ -52,8 +52,10 @@ layout: default
     <i class="fa fa-circle"></i>
     {% endif %}
     </span>
+    <!-- BEAGIN comment icon
     <span><a href="javascript:leave_comment();" id="leave_comment_link"><i class="fa fa-comment-o"></i></a></span>
     <span><a href="javascript:collapse_comment();" id="collapse_comment_link" style="display:none;"><i class="fa fa-chevron-up"></i></a></span>
+     END comment icon -->
     <span>
     {% if page.next %}
     <a href="{{ site.baseurl }}{{ page.next.url }}"><i class="fa fa-chevron-right"></i></a>
