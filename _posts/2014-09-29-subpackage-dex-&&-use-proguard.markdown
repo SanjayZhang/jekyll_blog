@@ -11,7 +11,7 @@ tags:
 
 ------
 
-***目前官方已经支持分包，具体查看[官网](https://developer.android.com/reference/android/support/multidex/MultiDex.html)***
+***目前官方已经支持分包，具体查看 [官网](https://developer.android.com/reference/android/support/multidex/MultiDex.html)***
 
 ------
 
@@ -32,13 +32,13 @@ Dex 分包方案流程：dex 分包，dex 注入。对于 Android 2.3 之前的�
 
 ***感谢作者分享 [Facebook 的 Dalvik 运行期补丁](http://log4think.com/facebook_dalvik_patch_for_android/)***
   
-## Dex分包方案流程
+## Dex 分包方案流程
 
 ### 1. 分包的方式
 
 Dex 由主程序中的类以及使用的 jar 包中类共同生成。程序中的类通过 javac 生成 class，jar 包相当于 class 类的 zip 合集不用处理。打包的时候将两者共同打入 dex 文件。要分包原则上要计算方法的个数，等超过 65536 就打入第二个 dex。当然由于功能模块的划分，我这里把主程序中的类打入原本的 classes.dex，把第三方 jar 包打入第二个 dex、第二个 dex 包存放在 asset 下面，命名为 libs.apk。
 
-这里要说明的是 dex，apk，经过 dx 之后的 jar 包对于 Android 主程序来说是一致的都可以通过 DexClassLoader 加载。***不熟悉 Ant 打包 Android apk 流程的，可以猛戳[这里](http://blog.csdn.net/chenzhiqin20/article/details/8191889)***
+这里要说明的是 dex，apk，经过 dx 之后的 jar 包对于 Android 主程序来说是一致的都可以通过 DexClassLoader 加载。***不熟悉 Ant 打包 Android apk 流程的，可以猛戳 [这里](http://blog.csdn.net/chenzhiqin20/article/details/8191889)***
   
 分包过程中涉及的流程是：生成 dex 文件，原来这里是打包经过混淆之后 class 文件以及 jar 包文件。这里的机制是前面生成的 class 文件混淆成 jar 包之后再解压出新的 class 文件（实际上 jar 包可以直接 dx 成 dex，这里主要是可以再次分 classes），再通过 dx 命令和 jar 包一起打成 dex 文件。
 
@@ -53,9 +53,9 @@ Dex 由主程序中的类以及使用的 jar 包中类共同生成。程序中�
 1. 代码编写不方便，第二个类中的所有资源都要反射动态加载。
 2. 如果分包的时候有一些 Android Framework 打入第二个包，主程序会启动不起来（网上的说法，有疑问，一般核心类不是应该存在系统里面的？）。
 
-而 dex 注入是在 Activity 启动之前的 Application 通过反射替换该程序的内存中存类方法的地址。[这篇](http://blog.csdn.net/huli870715/article/details/38023065)的原理比较清晰，可以一看，不过没有关键代码。具体实现的时候没有成功估计是我自己实现的有问题，反射这类的又不好调试。这边的原理是将新增加的方法，通过反射动态添加到程序的 PathClassLoader 中的 dexElements 中。
+而 dex 注入是在 Activity 启动之前的 Application 通过反射替换该程序的内存中存类方法的地址。[这篇](http://blog.csdn.net/huli870715/article/details/38023065) 的原理比较清晰，可以一看，不过没有关键代码。具体实现的时候没有成功估计是我自己实现的有问题，反射这类的又不好调试。这边的原理是将新增加的方法，通过反射动态添加到程序的 PathClassLoader 中的 dexElements 中。
 
-而下面的方法直接将加载的 dex 替换掉程序 PathClassLoader 的父 Classloader，原理当然还是需要跟源代码，但表示系统加载流程什么的还是交给[老罗的 Android 之旅](http://blog.csdn.net/luoshengyang/article/details/8923485)。目前猜测是程序调用方案先从 PathClassloader 取，若取不到则从他的父 Classloader 中取。
+而下面的方法直接将加载的 dex 替换掉程序 PathClassLoader 的父 Classloader，原理当然还是需要跟源代码，但表示系统加载流程什么的还是交给 [老罗的 Android 之旅](http://blog.csdn.net/luoshengyang/article/details/8923485)。目前猜测是程序调用方案先从 PathClassloader 取，若取不到则从他的父 Classloader 中取。
 
 ***感谢分享者 [mmin18](https://github.com/mmin18/Dex65536)，以下是具体代码：***
 

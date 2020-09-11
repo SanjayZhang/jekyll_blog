@@ -15,13 +15,13 @@ tags:
 4. ProGuard 混淆出现无法编译错误
 5. 多渠道打包问题
 
-主要参考的是[用 Gradle 构建你的 android 程序](http://www.cnblogs.com/youxilua/archive/2013/05/20/3087935.html)
+主要参考的是 [用 Gradle 构建你的 android 程序](http://www.cnblogs.com/youxilua/archive/2013/05/20/3087935.html)
 
-- 问题1: 参见[用Gradle 构建你的 android 程序-依赖管理篇](http://www.cnblogs.com/youxilua/archive/2013/05/22/3092657.html)
+- 问题 1: 参见 [用 Gradle 构建你的 android 程序-依赖管理篇](http://www.cnblogs.com/youxilua/archive/2013/05/22/3092657.html)
 官方指南 [Gradle Plugin User Guide](http://tools.android.com/tech-docs/new-build-system/user-guide#TOC-Goals-of-the-new-Build-System)
-- 问题2: 参见 [Gradle 构建 android 应用常见问题解决指南](http://www.cnblogs.com/youxilua/p/3348162.html)
-- 问题3: 一直编译不通过，后来发现是资源文件中以包名路径调用了资源，配置文件里构建多版本时就不能改包名
-- 问题4: 这个问题搞了很久，一直报 task 无法调用 ProGuard.proguard。但是 Intellij 是可以混淆的，后来发现是构建多项目时由于有两个 v4 包，为了省事使用
+- 问题 2: 参见 [Gradle 构建 android 应用常见问题解决指南](http://www.cnblogs.com/youxilua/p/3348162.html)
+- 问题 3: 一直编译不通过，后来发现是资源文件中以包名路径调用了资源，配置文件里构建多版本时就不能改包名
+- 问题 4: 这个问题搞了很久，一直报 task 无法调用 ProGuard.proguard。但是 Intellij 是可以混淆的，后来发现是构建多项目时由于有两个 v4 包，为了省事使用
 
 ``` groovy
 dependencies {
@@ -29,9 +29,9 @@ dependencies {
 }
 ```
 
-直接删掉了主项目中的 v4 包，但是混淆的配置文件中使用的是原来的，还是加载了项目中的 v4 包，但是 Gradle 编译出现的错误看不出啥么花头。。。
+直接删掉了主项目中的 v4 包，但是混淆的配置文件中使用的是原来的，还是加载了项目中的 v4 包，但是 Gradle 编译出现的错误看不出啥么花头。
 
-- 问题5: 多渠道代码 copy 的是 [Jenkins + Gradle 实现 android 开发持续集成、打包](http://my.oschina.net/uboluo/blog/157483)
+- 问题 5: 多渠道代码 copy 的是 [Jenkins + Gradle 实现 android 开发持续集成、打包](http://my.oschina.net/uboluo/blog/157483)
 
 附：build.gradle  
 
@@ -105,7 +105,7 @@ android {
         }
     }
 }
- //添加本地so库
+ // 添加本地 so 库
 task copyNativeLibs(type: Copy) {
     from(new File('libs')) { include '**/*.so' }
     into new File(buildDir, 'native-libs')

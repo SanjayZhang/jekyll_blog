@@ -66,5 +66,5 @@ if (line.contains("UnusedResources") && !line.contains("res\\values") && !line.c
 
 ## 更多
 
-1. Ucdetector 以及 Lint本身无法清除的资源，这边当然也无能为力啦。这边只是站在巨人的肩膀上，再想省事点。
+1. Ucdetector 以及 Lint 本身无法清除的资源，这边当然也无能为力啦。这边只是站在巨人的肩膀上，再想省事点。
 2. 当然据说新版 Gradle 插件已经可以通过 Lint 自动清除无用的代码，由于使用的是 Ant，这边只能自己做，有条件的当然用他们的，毕竟他们会持续维护。
