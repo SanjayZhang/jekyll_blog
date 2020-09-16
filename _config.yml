@@ -1,6 +1,6 @@
 baseurl:
 
-markdown: rdiscount
+markdown: kramdown
 pygments: true
 permalink: /:year/:month/:day/:title.html
 name: "[Sanjay Blog]"
