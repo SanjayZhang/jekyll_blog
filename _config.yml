@@ -6,4 +6,5 @@ permalink: /:year/:month/:day/:title.html
 name: "[Sanjay Blog]"
 
 author: sanjay
+atom-baseurl: "https://sanjayz.com"
 disqus:
